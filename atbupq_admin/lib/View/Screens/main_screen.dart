@@ -1,0 +1,82 @@
+import 'package:atbupq_admin/View/Screens/Banners.dart';
+import 'package:atbupq_admin/View/Screens/falculties.dart';
+import 'package:atbupq_admin/View/Screens/quiz.dart';
+import 'package:atbupq_admin/styles/colors.dart';
+import 'package:atbupq_admin/styles/fonts.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_admin_scaffold/admin_scaffold.dart';
+
+class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  Widget selectedItem = const Faculty();
+  screenselector(item) {
+    switch (item.route) {
+      case Faculty.routeName:
+        setState(() {
+          selectedItem = const Faculty();
+        });
+        break;
+      case Banners.routeName:
+        setState(() {
+          selectedItem = const Banners();
+        });
+        break;
+      case Quiz.routeName:
+        setState(() {
+          selectedItem = const Quiz();
+        });
+        break;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AdminScaffold(
+        backgroundColor: whiteColor,
+        appBar: AppBar(
+          backgroundColor: primaryColor,
+          title: Text(
+            'Admin Panel',
+            style: kbodysmallwhitecolor,
+          ),
+        ),
+        sideBar: SideBar(
+          items: const [
+            AdminMenuItem(
+                title: 'Faculties',
+                icon: Icons.library_add,
+                route: Faculty.routeName),
+            AdminMenuItem(
+                title: 'Banners',
+                icon: Icons.library_add,
+                route: Banners.routeName),
+            AdminMenuItem(
+                title: 'Quiz', icon: Icons.library_add, route: Quiz.routeName),
+          ],
+          selectedRoute: '/',
+          onSelected: (item) {
+            screenselector(item);
+          },
+          header: Container(
+            height: 50,
+            width: double.infinity,
+            color: const Color(0xff444444),
+            child: const Center(
+              child: Text(
+                'Category',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+        ),
+        body: selectedItem);
+  }
+}
