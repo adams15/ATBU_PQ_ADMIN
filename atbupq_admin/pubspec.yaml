@@ -39,6 +39,10 @@ dependencies:
   google_fonts: ^6.1.0
   provider: ^6.1.1
   http: ^1.2.1
+  firebase_core: ^2.27.2
+  firebase_auth: ^4.18.0
+  firebase_storage: ^11.6.11
+  cloud_firestore: ^4.15.10
  
 
 dev_dependencies:

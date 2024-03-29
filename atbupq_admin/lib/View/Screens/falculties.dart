@@ -19,6 +19,7 @@ class Faculty extends StatelessWidget {
                 'Faculties',
                 style: kbodylargeboldText,
               ),
+              //ghgjgfjftjdtdtf
             ),
           ),
           const Divider(
