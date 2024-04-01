@@ -1,4 +1,4 @@
-import 'package:atbupq_admin/View/Screens/Banners.dart';
+import 'package:atbupq_admin/View/Screens/craete_questions.dart';
 import 'package:atbupq_admin/View/Screens/falculties.dart';
 import 'package:atbupq_admin/View/Screens/quiz.dart';
 import 'package:atbupq_admin/styles/colors.dart';
@@ -14,17 +14,17 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  Widget selectedItem = const Faculty();
+  Widget selectedItem = const Create_Faulties();
   screenselector(item) {
     switch (item.route) {
-      case Faculty.routeName:
+      case Create_Faulties.routeName:
         setState(() {
-          selectedItem = const Faculty();
+          selectedItem = const Create_Faulties();
         });
         break;
-      case Banners.routeName:
+      case Add_Questions.routeName:
         setState(() {
-          selectedItem = const Banners();
+          selectedItem = const Add_Questions();
         });
         break;
       case Quiz.routeName:
@@ -49,13 +49,13 @@ class _MainScreenState extends State<MainScreen> {
         sideBar: SideBar(
           items: const [
             AdminMenuItem(
-                title: 'Faculties',
+                title: 'Create Faculties',
                 icon: Icons.library_add,
-                route: Faculty.routeName),
+                route: Create_Faulties.routeName),
             AdminMenuItem(
-                title: 'Banners',
+                title: 'Add Questions',
                 icon: Icons.library_add,
-                route: Banners.routeName),
+                route: Add_Questions.routeName),
             AdminMenuItem(
                 title: 'Quiz', icon: Icons.library_add, route: Quiz.routeName),
           ],
