@@ -1,6 +1,6 @@
 import 'package:atbupq_admin/View/Screens/craete_questions.dart';
 import 'package:atbupq_admin/View/Screens/falculties.dart';
-import 'package:atbupq_admin/View/Screens/quiz.dart';
+import 'package:atbupq_admin/View/Screens/banners.dart';
 import 'package:atbupq_admin/styles/colors.dart';
 import 'package:atbupq_admin/styles/fonts.dart';
 import 'package:flutter/material.dart';
@@ -8,18 +8,19 @@ import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
+  static const String routeName = '/Craete_Faculties';
 
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
-  Widget selectedItem = const Create_Faulties();
+  Widget selectedItem = const Create_Faculties();
   screenselector(item) {
     switch (item.route) {
-      case Create_Faulties.routeName:
+      case Create_Faculties.routeName:
         setState(() {
-          selectedItem = const Create_Faulties();
+          selectedItem = const Create_Faculties();
         });
         break;
       case Add_Questions.routeName:
@@ -27,9 +28,9 @@ class _MainScreenState extends State<MainScreen> {
           selectedItem = const Add_Questions();
         });
         break;
-      case Quiz.routeName:
+      case Banners.routeName:
         setState(() {
-          selectedItem = const Quiz();
+          selectedItem = const Banners();
         });
         break;
     }
@@ -51,13 +52,15 @@ class _MainScreenState extends State<MainScreen> {
             AdminMenuItem(
                 title: 'Create Faculties',
                 icon: Icons.library_add,
-                route: Create_Faulties.routeName),
+                route: Create_Faculties.routeName),
             AdminMenuItem(
                 title: 'Add Questions',
                 icon: Icons.library_add,
                 route: Add_Questions.routeName),
             AdminMenuItem(
-                title: 'Quiz', icon: Icons.library_add, route: Quiz.routeName),
+                title: 'Banners',
+                icon: Icons.library_add,
+                route: Banners.routeName),
           ],
           selectedRoute: '/',
           onSelected: (item) {
